@@ -1,0 +1,15 @@
+{
+    "name": "quibble/postgresql",
+    "description": "PostgreSQL-specific database abstraction layer",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marijn Ophorst",
+            "email": "marijn@monomelodies.nl"
+        }
+    ],
+    "require": {
+        "quibble/dabble": "^1.6"
+    }
+}
