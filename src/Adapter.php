@@ -47,29 +47,24 @@ class Adapter extends Dabble\Adapter
         return '('.implode(' OR ', $els).')';
     }
 
-    public function interval($quantity, $amount)
-    {
-        $what = null;
-        switch ($quantity) {
-            case self::SECOND: $what = 'second'; break;
-            case self::MINUTE: $what = 'minute'; break;
-            case self::HOUR: $what = 'hour'; break;
-            case self::DAY: $what = 'day'; break;
-            case self::WEEK: $what = 'week'; break;
-            case self::MONTH: $what = 'month'; break;
-            case self::YEAR: $what = 'year'; break;
-        }
-        return sprintf("'%d %s'::interval", $amount, $what);
-    }
-
     public function lastInsertId($object = null)
     {
         return parent::lastInsertId("{$object}_id_seq");
     }
 
-    public function random()
+    public function interval($unit, $amount) : Dabble\Raw
     {
-        return 'RANDOM()';
+        return new Dabble\Raw(sprintf("'%d %s'::interval", $amount, $unit));
+    }
+
+    public function random() : Dabble\Raw
+    {
+        return new Dabble\Raw('RANDOM()');
+    }
+
+    public function now() : Dabble\Now
+    {
+        return new Now;
     }
 
     /**
