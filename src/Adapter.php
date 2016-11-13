@@ -62,9 +62,9 @@ class Adapter extends Dabble\Adapter
         return new Dabble\Raw('RANDOM()');
     }
 
-    public function now() : Dabble\Now
+    public function now() : Dabble\Raw
     {
-        return new Now;
+        return new Dabble\Raw('NOW()');
     }
 
     /**
