@@ -102,10 +102,11 @@ class Adapter extends Dabble\Adapter
         foreach ($array as &$sub) {
             if (is_array($sub)) {
                 $sub = self::arrayToString($sub);
+            } else {
+                $sub = json_encode($sub);
             }
         }
-        $json = json_encode($array);
-        return '{'.substr($json, 1, -1).'}';
+        return '{'.implode(',', $array).'}';
     }
 }
 
