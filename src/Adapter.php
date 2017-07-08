@@ -5,12 +5,13 @@
  *
  * @package Quibble\Postgresql
  * @author Marijn Ophorst <marijn@monomelodies.nl>
- * @copyright MonoMelodies 2008, 2009, 2010, 2011, 2012, 2015, 2016
+ * @copyright MonoMelodies 2008, 2009, 2010, 2011, 2012, 2015, 2016, 2017
  */
 
 namespace Quibble\Postgresql;
 
 use Quibble\Dabble;
+use DomainException;
 
 /**
  * PostgreSQL database abstraction class.
@@ -73,15 +74,18 @@ class Adapter extends Dabble\Adapter
      *
      * @param string $string A database-field containing an array.
      * @return array A PHP array of its values.
+     * @throws DomainException if the string passed is not a PostgreSQL array
      */
     public static function stringToArray($string)
     {
         if (!preg_match("@^{.*?}$@", $string)) {
-            return $string;
+            throw new DomainException("Not array-like: $string");
         }
-        $parts = explode(',', substr($string, 1, -1));
+        $parts = json_decode('['.substr($string, 1, -1).']');
         foreach ($parts as &$part) {
-            $part = self::stringToArray($part);
+            if (preg_match('@^{.*?}@', $part)) {
+                $part = self::stringToArray($part);
+            }
         }
         return $parts;
     }
@@ -95,6 +99,11 @@ class Adapter extends Dabble\Adapter
      */
     public static function arrayToString(array $array) : string
     {
+        foreach ($array as &$sub) {
+            if (is_array($sub)) {
+                $sub = self::arrayToString($sub);
+            }
+        }
         $json = json_encode($array);
         return '{'.substr($json, 1, -1).'}';
     }
