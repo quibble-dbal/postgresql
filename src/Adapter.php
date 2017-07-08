@@ -76,7 +76,7 @@ class Adapter extends Dabble\Adapter
      * @return array A PHP array of its values.
      * @throws DomainException if the string passed is not a PostgreSQL array
      */
-    public static function stringToArray(string $string)
+    public static function stringToArray(string $string) : array
     {
         if (!preg_match("@^{.*?}$@", $string)) {
             throw new DomainException("Not array-like: $string");
