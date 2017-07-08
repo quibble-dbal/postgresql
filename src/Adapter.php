@@ -85,5 +85,18 @@ class Adapter extends Dabble\Adapter
         }
         return $parts;
     }
+
+    /**
+     * The native driver does not convert PHP arrays to PostgreSQL arrays.
+     * So, this method does. :)
+     *
+     * @param array $array An array.
+     * @return string A string suitable for insert/update.
+     */
+    public static function arrayToString(array $array) : string
+    {
+        $json = json_encode($array);
+        return '{'.substr($json, 1, -1).'}';
+    }
 }
 
