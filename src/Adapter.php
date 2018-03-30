@@ -18,21 +18,12 @@ use DomainException;
  */
 class Adapter extends Dabble\Adapter
 {
-    public function __construct(
-        $dsn,
-        $username = null,
-        $password = null,
-        array $options = []
-    ) {
-        return parent::__construct(
-            "pgsql:$dsn",
-            $username,
-            $password,
-            $options
-        );
+    public function __construct(string $dsn, string $username = null, string $password = null, array $options = [])
+    {
+        return parent::__construct("pgsql:$dsn", $username, $password, $options);
     }
 
-    public function any($key, $values, &$bind)
+    public function any(string $key, $values, &$bind) : string
     {
         $els = [];
         if (!is_array($values)) {
@@ -48,12 +39,12 @@ class Adapter extends Dabble\Adapter
         return '('.implode(' OR ', $els).')';
     }
 
-    public function lastInsertId($object = null)
+    public function lastInsertId(string $object = null) : string
     {
         return parent::lastInsertId("{$object}_id_seq");
     }
 
-    public function interval($unit, $amount) : Dabble\Raw
+    public function interval(string $unit, int $amount) : Dabble\Raw
     {
         return new Dabble\Raw(sprintf("'%d %s'::interval", $amount, $unit));
     }
