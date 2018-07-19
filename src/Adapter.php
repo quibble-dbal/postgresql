@@ -44,19 +44,19 @@ class Adapter extends Dabble\Adapter
         return parent::lastInsertId("{$object}_id_seq");
     }
 
-    public function interval(string $unit, int $amount) : Dabble\Raw
+    public function interval(string $unit, int $amount) : string
     {
-        return new Dabble\Raw(sprintf("'%d %s'::interval", $amount, $unit));
+        return sprintf("'%d %s'::interval", $amount, $unit);
     }
 
-    public function random() : Dabble\Raw
+    public function random() : string
     {
-        return new Dabble\Raw('RANDOM()');
+        return 'RANDOM()';
     }
 
-    public function now() : Dabble\Raw
+    public function now() : string
     {
-        return new Dabble\Raw('NOW()');
+        return 'NOW()';
     }
 
     /**
