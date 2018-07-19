@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
-        "quibble/dabble": "^1.7.0"
+        "php": ">=7.2",
+        "quibble/dabble": "^2.0.0"
     },
     "autoload": {
         "psr-4": {
