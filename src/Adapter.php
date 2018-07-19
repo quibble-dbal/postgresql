@@ -39,7 +39,7 @@ class Adapter extends Dabble\Adapter
         return '('.implode(' OR ', $els).')';
     }
 
-    public function lastInsertId(string $object = null) : string
+    public function lastInsertId($object = null) : string
     {
         return parent::lastInsertId("{$object}_id_seq");
     }
