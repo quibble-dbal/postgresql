@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05f8d3943b1171b90037bef82ec86877",
+    "content-hash": "fe6964544ceab815c2785000602d312e",
     "packages": [
         {
             "name": "quibble/dabble",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quibble-dbal/dabble.git",
-                "reference": "eebbf2b10648ade73d60fb1dca23cef58dd0964d"
+                "reference": "68b4d8530efa9f235f851f53c7b285a290342032"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quibble-dbal/dabble/zipball/eebbf2b10648ade73d60fb1dca23cef58dd0964d",
-                "reference": "eebbf2b10648ade73d60fb1dca23cef58dd0964d",
+                "url": "https://api.github.com/repos/quibble-dbal/dabble/zipball/68b4d8530efa9f235f851f53c7b285a290342032",
+                "reference": "68b4d8530efa9f235f851f53c7b285a290342032",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 }
             ],
             "description": "DBAL for Quibble",
-            "time": "2018-07-19T11:03:16+00:00"
+            "time": "2018-07-19T11:44:57+00:00"
         }
     ],
     "packages-dev": [],
