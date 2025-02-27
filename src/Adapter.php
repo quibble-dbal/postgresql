@@ -18,7 +18,7 @@ use DomainException;
  */
 class Adapter extends Dabble\Adapter
 {
-    public function __construct(string $dsn, string $username = null, string $password = null, array $options = [])
+    public function __construct(string $dsn, ?string $username = null, ?string $password = null, array $options = [])
     {
         return parent::__construct("pgsql:$dsn", $username, $password, $options);
     }
