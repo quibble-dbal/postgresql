@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "quibble/dabble",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/quibble-dbal/dabble.git",
-                "reference": "b5ee02784860eb669c8ca006cec3f7dcb5031bfa"
+                "reference": "bbe62f204c073f91ae450fe715face7d2156f066"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/quibble-dbal/dabble/zipball/b5ee02784860eb669c8ca006cec3f7dcb5031bfa",
-                "reference": "b5ee02784860eb669c8ca006cec3f7dcb5031bfa",
+                "url": "https://api.github.com/repos/quibble-dbal/dabble/zipball/bbe62f204c073f91ae450fe715face7d2156f066",
+                "reference": "bbe62f204c073f91ae450fe715face7d2156f066",
                 "shasum": ""
             },
             "require": {
@@ -47,9 +47,9 @@
             "description": "DBAL for Quibble",
             "support": {
                 "issues": "https://github.com/quibble-dbal/dabble/issues",
-                "source": "https://github.com/quibble-dbal/dabble/tree/2.2.2"
+                "source": "https://github.com/quibble-dbal/dabble/tree/2.2.3"
             },
-            "time": "2025-02-27T12:46:07+00:00"
+            "time": "2025-02-28T12:52:02+00:00"
         }
     ],
     "packages-dev": [],
